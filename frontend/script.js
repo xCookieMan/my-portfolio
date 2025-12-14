@@ -325,7 +325,7 @@ if (btn && aim && form) {
       return;
     }
 
-    fetch("http://localhost:5000/api/contact", {
+    fetch("https://nakulkoli.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
