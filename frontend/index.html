@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Portfolio</title>
+    <!-- Font Awesome for Footer Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Nakul</div>
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <div class="home" id="home">
+      <div class="text">
+        <h1>Hey, <span>My name</span> <span>Nakul</span></h1>
+        <h2>And I am a <span id="rotator"></span></h2>
+      </div>
+      <div class="image-container">
+        <img src="./logo.jpg" alt="logo" />
+        <div class="orbit-line"></div>
+        <div class="orbit-dot"></div>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="about-container" id="about">
+      <div class="about-img">
+        <img src="./logo.jpg" alt="My Image" />
+        <div class="border-snake"></div>
+      </div>
+      <div class="about-text">
+        <h1>About <span>Me</span></h1>
+        <p>
+          Hi, I'm <b>Nakul</b> — a passionate <b>MERN Stack Developer</b>...
+        </p>
+        <div class="highlight">
+          I specialize in full-stack apps using
+          <b>MongoDB, Express.js, React.js, Node.js</b>.
+        </div>
+        <div class="highlight">
+          I enjoy crafting dynamic UI, animations, and complex backend
+          solutions.
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects-section">
+      <h1 class="section-title">My <span>Projects</span></h1>
+      <div class="projects-grid">
+        <!-- Card 1 -->
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1555992336-03a23c4a3f40"
+            alt="Project1"
+          />
+          <div class="project-info">
+            <h2>Restaurant</h2>
+            <p>A modern and responsive restaurant website.</p>
+            <div class="button-container">
+              <button class="view-btn">
+                View Project
+                <div class="ufo big"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1607083206968-13611e52ba1b"
+            alt="Project2"
+          />
+          <div class="project-info">
+            <h2>E-Commerce</h2>
+            <p>Complete e-commerce platform with cart and checkout.</p>
+            <div class="button-container">
+              <button class="view-btn">
+                View Project
+                <div class="ufo big"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04"
+            alt="Project3"
+          />
+          <div class="project-info">
+            <h2>YouTube Clone</h2>
+            <p>Video streaming platform with clean UI.</p>
+            <div class="button-container">
+              <button class="view-btn">
+                View Project
+                <div class="ufo big"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980"
+            alt="Project4"
+          />
+          <div class="project-info">
+            <h2>TikTok Clone</h2>
+            <p>Short video platform with swipe interaction.</p>
+            <div class="button-container">
+              <button class="view-btn">
+                View Project
+                <div class="ufo big"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+                <div class="ufo small"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-form">
+        <div class="flying-saucer">
+          <div class="head"></div>
+          <div class="lights"></div>
+        </div>
+        <h2>Contact Me</h2>
+
+        <div class="input-group">
+          <input type="text" required />
+          <label>Name</label>
+        </div>
+
+        <div class="input-group">
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+
+        <div class="input-group">
+          <textarea rows="4" required></textarea>
+          <label>Your Message</label>
+        </div>
+
+        <button class="send-btn" id="shootButton">SEND
+          <div class="aim" id="aim"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- STAR CANVAS -->
+    <canvas id="space"></canvas>
+
+    <!-- GLASS-MORPHISM FOOTER -->
+    <footer class="glass-footer">
+      <div class="footer-inner">
+        <p class="copyright">© 2025 Nakul. All rights reserved.</p>
+        <div class="socials">
+          <a
+            href="https://instagram.com/xcookieman"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a
+            href="https://facebook.com/xCookieMan"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+          <!-- YouTube अभी उपलब्ध नहीं, इसलिए हटा दिया गया -->
+          <a
+            href="https://github.com/xCookieMan"
+            target="_blank"
+            class="social-link"
+          >
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

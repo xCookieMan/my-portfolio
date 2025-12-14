@@ -1,0 +1,907 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background: black;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    z-index: 10;
+}
+
+nav .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+nav .menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #ff6b81;
+    transition: 0.3s;
+}
+
+nav .menu a:hover::after {
+    width: 100%;
+}
+
+nav .menu a:hover {
+    color: #ff6b81;
+    transform: scale(1.05);
+    text-shadow: 0 0 8px #ff6b81;
+}
+
+/* HOME SECTION */
+.home {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100vh;
+    color: white;
+}
+
+.home .text {
+    flex: 1;
+}
+
+.home .text h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.home .text h1 span {
+    color: #ff6b81;
+}
+
+.home .text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.home .text h2 span {
+    color: #00d4ff;
+    border-bottom: 2px solid #00d4ff;
+}
+
+/* IMAGE CONTAINER WITH ORBIT */
+.image-container {
+    flex: 1;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    position: absolute;
+    z-index: 2;
+}
+
+.orbit-line {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: spin 6s linear infinite;
+    z-index: 1;
+}
+
+.orbit-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg) translateX(150px);
+    transform-origin: center center;
+    animation: spin-dot 6s linear infinite;
+    z-index: 3;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-dot {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(150px);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(150px);
+    }
+}
+
+/* ABOUT SECTION */
+.about-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.about-img {
+    width: 30%;
+    min-width: 300px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.about-img .border-snake {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 20px;
+    border: 3px solid white;
+    background: linear-gradient(90deg, transparent, white, transparent);
+    background-size: 200% 100%;
+    animation: borderSnake 2.5s linear infinite;
+    z-index: 1;
+}
+
+@keyframes borderSnake {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.about-text {
+    width: 55%;
+    min-width: 250px;
+}
+
+.about-text h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.about-text h1 span {
+    color: #00c8ff;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+.highlight {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #00c8ff;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+/* PROJECTS SECTION */
+.projects-section {
+    padding: 100px 5%;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.section-title span {
+    color: #00d4ff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    transition: 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.4);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h2 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+    color: #00eaff;
+}
+
+.project-info p {
+    font-size: 1rem;
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* UFO BUTTON */
+.button-container {
+    position: relative;
+    z-index: 1;
+}
+
+.view-btn {
+    padding: 12px 40px;
+    font-size: 1.2rem;
+    color: white;
+    border: 2px solid white;
+    background: black;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s box-shadow, 0.3s background;
+}
+
+.view-btn.hover-active {
+    box-shadow: 0 0 12px #00d4ff inset;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.view-btn .ufo {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%/50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50px);
+    opacity: 0;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+.view-btn .ufo.big {
+    width: 25px;
+    height: 7px;
+    background: linear-gradient(90deg, #fff, #aaa);
+}
+
+.view-btn .ufo.big::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 4px;
+    top: -4px;
+    left: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, transparent);
+}
+
+.view-btn .ufo.big::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 1px;
+    bottom: 0;
+    left: 6px;
+    border-radius: 50%;
+    box-shadow: 2px 0 0 #fff, 4px 0 0 #fff;
+}
+
+.view-btn .ufo.small {
+    width: 15px;
+    height: 5px;
+    background: linear-gradient(90deg, #fff, #ccc);
+}
+
+.view-btn .ufo.small::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 3px;
+    top: -2px;
+    left: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, transparent);
+}
+
+.view-btn .ufo.small::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 1px;
+    bottom: 0;
+    left: 4px;
+    border-radius: 50%;
+    box-shadow: 2px 0 0 #fff, 4px 0 0 #fff;
+}
+
+.view-btn .trail {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* STAR CANVAS */
+#space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .image-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .image-container img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .orbit-line {
+        width: 220px;
+        height: 220px;
+    }
+
+    .orbit-dot {
+        width: 10px;
+        height: 10px;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(110px);
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img,
+    .about-text {
+        width: 100%;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+
+.contact-form {
+    position: relative;
+    margin-left: 500px;
+    width: 420px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 30px;
+    border-radius: 22px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 25px rgba(0, 150, 255, 0.2);
+    overflow: hidden;
+}
+
+.contact-form h2 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.input-group {
+    position: relative;
+    margin: 25px 0;
+    padding-right: 20px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    resize: none;
+}
+
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    font-size: 16px;
+    color: #bfc5d0;
+    pointer-events: none;
+    transition: 0.35s ease;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label,
+.input-group textarea:focus~label,
+.input-group textarea:valid~label {
+    top: -8px;
+    left: 12px;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0 6px;
+    border-radius: 4px;
+    color: #6db9ff;
+}
+
+.trail {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.send-btn {
+    width: 100%;
+    padding: 14px 0;
+    border: none;
+    background: #3a8bff;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(10% 0%,
+            85% 5%,
+            100% 20%,
+            95% 85%,
+            80% 100%,
+            15% 95%,
+            0% 80%,
+            5% 15%);
+    font-family: "Orbitron", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px #fff, 0 0 12px #6ddcff;
+}
+
+.send-btn:hover {
+    background: #5aa8ff;
+}
+
+.aim {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #6ddcff;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: 0.12s, opacity 0.2s;
+}
+
+.aim::before,
+.aim::after {
+    content: "";
+    position: absolute;
+    background: #6ddcff;
+}
+
+.aim::before {
+    height: 2px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.aim::after {
+    height: 40px;
+    width: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.aim.glow {
+    box-shadow: 0 0 10px #6ddcff, 0 0 20px #6ddcff80, 0 0 30px #6ddcff50;
+}
+
+.blast {
+    animation: blastAnim 0.25s ease-out forwards;
+    background: #ff3b3b !important;
+    box-shadow: 0 0 25px #ff3b3b !important;
+}
+
+@keyframes blastAnim {
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.18) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleBlast 0.75s ease-out forwards;
+}
+
+@keyframes particleBlast {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0.2);
+        opacity: 0;
+    }
+}
+
+.smoke {
+    animation: smokeFloat 1s ease-out forwards;
+    opacity: 0.7;
+    filter: blur(1px);
+}
+
+@keyframes smokeFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-40px) scale(1.4);
+        opacity: 0;
+    }
+}
+
+.shockwave {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    animation: shockAnim 0.55s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes shockAnim {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(8);
+        opacity: 0;
+    }
+}
+
+/* UFO base */
+.flying-saucer {
+    position: relative;
+    width: 160px;
+    height: 30px;
+    background-color: #20232b;
+    border-radius: 80px / 15px;
+    box-shadow: inset 1px 1px 5px #2a2c3a;
+}
+
+/* Saucer bottom */
+.flying-saucer::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 8px;
+    background-color: #1a1c29;
+    border-radius: 15% 15% 90% 90%;
+    z-index: -1;
+}
+
+/* UFO head (inverted U shape) */
+.flying-saucer .head {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -5px;
+    /* pull closer */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 25px;
+    background-color: #2a2f40;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    border: 2px solid #1f2432;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    z-index: 2;
+}
+
+/* Thin white U line at the bottom of the head */
+.flying-saucer .head::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    width: 56px;
+    /* slightly less than head width */
+    height: 2px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 0 0 30px 30px;
+    /* gentle U shape */
+}
+
+/* UFO lights (dots) */
+.lights {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #36b5d1;
+    box-shadow: -40px 0 #36b5d1, 40px 0 #36b5d1;
+    /* side lights */
+}
+
+/* Floating animation for UFO */
+@keyframes ufoFloat {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-12px);
+    }
+}
+
+.flying-saucer {
+    animation: ufoFloat 3s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* Hover bounce */
+.flying-saucer:hover {
+    transform: translateX(-50%) translateY(-5px) scale(1.05);
+}
+
+/* UFO lights blinking */
+@keyframes blinkLights {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.lights {
+    animation: blinkLights 1s infinite;
+}
+
+.flying-saucer:hover::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle,
+            rgba(109, 185, 255, 0.3) 0%,
+            rgba(109, 185, 255, 0) 80%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* GLASS-MORPHISM FOOTER — matches navbar */
+.glass-footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 20px 0;
+    margin-top: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.socials {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.02rem;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.social-link:hover {
+    color: #ff6b81;
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(255, 107, 129, 0.7);
+    background: rgba(255, 107, 129, 0.08);
+}
+
+.social-link i {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}
