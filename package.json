@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-mern",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "cd backend && npm start",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
