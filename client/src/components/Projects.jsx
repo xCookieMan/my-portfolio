@@ -7,21 +7,24 @@ const Projects = () => {
       title: "YouTube Clone",
       desc: "A responsive video streaming platform featuring video playback, channel pages, and search functionality. Built with React and RapidAPI.",
       image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1000&auto=format&fit=crop",
-      link: "https://github.com/xCookieMan/youtube-clone" 
+      liveUrl: "https://your-youtube-live-url.com",
+      codeUrl: "https://github.com/xCookieMan/youtube-clone"
     },
     {
       id: 2,
       title: "Restaurant Website",
       desc: "Full-stack restaurant management system with table booking, menu visualization, and admin dashboard. Powered by MERN stack.",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop",
-      link: "https://github.com/xCookieMan/restaurant" 
+      liveUrl: "https://your-restaurant-live-url.com",
+      codeUrl: "https://github.com/xCookieMan/restaurant"
     },
     {
       id: 3,
       title: "AI Thumbnail Studio",
       desc: "AI-powered application for generating creative thumbnails and images. Features user authentication and gallery management.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
-      link: "https://github.com/xCookieMan/ai-thumbnail-studio" 
+      liveUrl: "https://your-ai-thumbnail-live-url.com",
+      codeUrl: "https://github.com/xCookieMan/ai-thumbnail-studio"
     }
   ];
 
@@ -175,7 +178,12 @@ const Projects = () => {
               <h2>{project.title}</h2>
               <p>{project.desc}</p>
               <div className="button-container">
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="view-btn-link">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="view-btn-link"
+                >
                   <button 
                     className="view-btn" 
                     onMouseEnter={handleMouseEnter} 

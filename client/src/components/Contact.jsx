@@ -102,7 +102,13 @@ const Contact = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     try {
-      const response = await axios.post('/api/contact', formData);
+      const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+      const response = await axios.post(`${API_BASE}/api/contact`, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: false,
+      });
       if (response.data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });

@@ -9,16 +9,10 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ CORS: सही origins (local + future domain)
+// ✅ CORS: local + deployed (allow all origins for portfolio API)
 app.use(
   cors({
-    origin: [
-      "http://127.0.0.1:5500", // VS Code Live Server (default)
-      "http://localhost:5500", // Alternate Live Server
-      "http://127.0.0.1:5173", // Vite (अगर आप बाद में React/Vite इस्तेमाल करें)
-      "http://localhost:5173",
-      "https://yourdomain.com", // ✅ No trailing spaces!
-    ],
+    origin: true,
     credentials: true,
   })
 );
