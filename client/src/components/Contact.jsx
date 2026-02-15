@@ -109,10 +109,12 @@ const Contact = () => {
         },
         withCredentials: false,
       });
-      if (response.data.success) {
+      if (response.data && response.data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setStatus(''), 3000);
+      } else {
+        throw new Error('Unexpected response from server');
       }
     } catch (error) {
       console.error('Error sending message:', error);
