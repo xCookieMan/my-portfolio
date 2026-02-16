@@ -3,10 +3,8 @@ import { useEffect } from 'react';
 const useScrollReveal = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const smallScreen = window.innerWidth <= 768;
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (touch || smallScreen || prefersReducedMotion) {
+      if (prefersReducedMotion) {
         return;
       }
     }

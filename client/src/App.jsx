@@ -38,7 +38,7 @@ function App() {
       <div id="nebula-bg"></div>
       {!isMobile && <CursorTrail />}
       {!isMobile && <ScrollRocket />}
-      {!isMobile && <Starfield />}
+      <Starfield />
       <Navbar />
       <Home />
       <About />
