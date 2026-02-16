@@ -22,27 +22,42 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="nav-left">
-        <div className="logo">Nakul</div>
-        <button
-          className={`menu-toggle ${isOpen ? 'open' : ''}`}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div className={`menu ${isOpen ? 'menu-open' : ''}`}>
-        <button onClick={() => handleLinkClick('#home')}>Home</button>
-        <button onClick={() => handleLinkClick('#about')}>About</button>
-        <button onClick={() => handleLinkClick('#projects')}>Projects</button>
-        <button onClick={() => handleLinkClick('#contact')}>Contact</button>
-      </div>
-    </nav>
+    <>
+      <nav>
+        <div className="nav-left">
+          <div className="logo">Nakul</div>
+          <button
+            className={`menu-toggle ${isOpen ? 'open' : ''}`}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div className={`menu ${isOpen ? 'menu-open' : ''}`}>
+          <button
+            className="menu-close"
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close navigation"
+          >
+            <span></span>
+            <span></span>
+          </button>
+          <button onClick={() => handleLinkClick('#home')}>Home</button>
+          <button onClick={() => handleLinkClick('#about')}>About</button>
+          <button onClick={() => handleLinkClick('#projects')}>Projects</button>
+          <button onClick={() => handleLinkClick('#contact')}>Contact</button>
+        </div>
+      </nav>
+      <div
+        className={`nav-overlay ${isOpen ? 'visible' : ''}`}
+        onClick={() => setIsOpen(false)}
+      />
+    </>
   );
 };
 
