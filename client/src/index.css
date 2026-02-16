@@ -120,40 +120,21 @@ nav {
     z-index: 10;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 nav .logo {
     color: white;
     font-weight: bold;
     font-size: 1.4rem;
 }
 
-nav .menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 600;
-    font-size: 1rem;
-    position: relative;
-}
-
-nav .menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background: #ff6b81;
-    transition: 0.3s;
-}
-
-nav .menu a:hover::after {
-    width: 100%;
-}
-
-nav .menu a:hover {
-    color: #ff6b81;
-    transform: scale(1.05);
-    text-shadow: 0 0 8px #ff6b81;
+nav .menu {
+    display: flex;
+    align-items: center;
 }
 
 .menu-toggle {
@@ -212,6 +193,7 @@ nav .menu a:hover {
     font-size: 1rem;
     cursor: pointer;
     position: relative;
+    margin-left: 25px;
 }
 
 .menu button::after {
@@ -241,10 +223,6 @@ nav .menu a:hover {
         padding: 8px 14px;
     }
 
-    nav .logo {
-        font-size: 1.1rem;
-    }
-
     .menu-toggle {
         display: flex;
     }
@@ -260,7 +238,7 @@ nav .menu a:hover {
         border: 1px solid rgba(148, 163, 184, 0.6);
         display: none;
         flex-direction: column;
-        gap: 10px;
+        gap: 14px;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
 
@@ -271,6 +249,8 @@ nav .menu a:hover {
     nav .menu button {
         text-align: left;
         font-size: 0.9rem;
+        margin-left: 0;
+        padding: 3px 0;
     }
 }
 
