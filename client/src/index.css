@@ -220,7 +220,7 @@ nav .menu {
 @media (max-width: 768px) {
     nav {
         top: 10px;
-        padding: 8px 14px;
+        padding: 6px 10px;
     }
 
     .menu-toggle {
@@ -1105,6 +1105,22 @@ nav .menu {
     }
 
     .contact-form h2 {
+        font-size: 1.6rem;
+    }
+
+    .hologram-base {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .home {
+        padding-top: 100px;
+        gap: 30px;
+    }
+
+    .glitch {
+        letter-spacing: 3px;
         font-size: 1.6rem;
     }
 }

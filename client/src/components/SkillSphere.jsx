@@ -4,6 +4,14 @@ const SkillSphere = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const smallScreen = window.innerWidth <= 768;
+      if (touch || smallScreen) {
+        return;
+      }
+    }
+
     const container = containerRef.current;
     
     // Define skills with their specific colors

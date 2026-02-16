@@ -11,6 +11,7 @@ const Contact = () => {
   const btnRef = useRef(null);
   const aimRef = useRef(null);
   const formRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   
   // New smooth tracking state
   const mousePos = useRef({ x: 0, y: 0 });
@@ -31,9 +32,18 @@ const Contact = () => {
   };
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const smallScreen = window.innerWidth <= 768;
+      setIsMobile(touch || smallScreen);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     requestRef.current = requestAnimationFrame(animateAim);
     return () => cancelAnimationFrame(requestRef.current);
-  }, []);
+  }, [isMobile]);
 
   const createStarTrail = (inputElement) => {
     if (!formRef.current) return;
@@ -65,7 +75,9 @@ const Contact = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    createStarTrail(e.target);
+    if (!isMobile) {
+      createStarTrail(e.target);
+    }
   };
 
   const createBlastEffect = () => {
@@ -124,6 +136,7 @@ const Contact = () => {
   };
 
   const handleMouseMove = (e) => {
+    if (isMobile) return;
     if (btnRef.current) {
       const rect = btnRef.current.getBoundingClientRect();
       mousePos.current = {
@@ -134,6 +147,7 @@ const Contact = () => {
   };
 
   const handleMouseEnter = () => {
+    if (isMobile) return;
     if (aimRef.current) {
       aimRef.current.style.opacity = '1';
       aimRef.current.style.scale = '1';
@@ -141,6 +155,7 @@ const Contact = () => {
   };
 
   const handleMouseLeave = () => {
+    if (isMobile) return;
     if (aimRef.current) {
       aimRef.current.style.opacity = '0';
       aimRef.current.style.scale = '0.5';
