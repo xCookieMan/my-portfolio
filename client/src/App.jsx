@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Starfield from './components/Starfield';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -12,9 +12,16 @@ import CursorTrail from './components/CursorTrail';
 import useScrollReveal from './hooks/useScrollReveal';
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
   useScrollReveal();
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const smallScreen = window.innerWidth <= 768;
+      setIsMobile(touch || smallScreen);
+    }
+
     const loader = document.getElementById('initial-loader');
     if (!loader) return;
     loader.classList.add('fade-out');
@@ -29,9 +36,9 @@ function App() {
   return (
     <>
       <div id="nebula-bg"></div>
-      <CursorTrail />
-      <ScrollRocket />
-      <Starfield />
+      {!isMobile && <CursorTrail />}
+      {!isMobile && <ScrollRocket />}
+      {!isMobile && <Starfield />}
       <Navbar />
       <Home />
       <About />
