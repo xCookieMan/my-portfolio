@@ -30,6 +30,14 @@ body {
     filter: blur(60px);
     animation: nebulaMove 20s infinite alternate;
     pointer-events: none;
+    will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+    #nebula-bg {
+        filter: blur(30px); /* Reduced blur for performance */
+        animation-duration: 40s; /* Slower animation for performance */
+    }
 }
 
 @keyframes nebulaMove {
@@ -402,6 +410,19 @@ nav .menu {
     to { background-position: 200% center; }
 }
 
+@media (max-width: 768px) {
+    .glitch {
+        animation-duration: 6s; /* Slower animation for mobile */
+        letter-spacing: 3px;
+        filter: none; /* Disable drop-shadow on mobile */
+    }
+    
+    .glitch::before {
+        animation: none; /* Disable pulsing glow on mobile */
+        opacity: 0.3;
+    }
+}
+
 .home {
     position: relative;
     z-index: 2;
@@ -595,6 +616,16 @@ nav .menu {
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+    .orbit-line, .orbit-dot {
+        animation-duration: 18s; /* Slower spin on mobile */
+    }
+    
+    .about-img {
+        animation: none; /* Disable floating on mobile */
+    }
 }
 
 /* ABOUT SECTION */

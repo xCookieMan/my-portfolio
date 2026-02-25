@@ -5,6 +5,10 @@ const CursorTrail = () => {
   const trailsRef = useRef([]);
 
   useEffect(() => {
+    // Disable on mobile/touch devices
+    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    if (isMobile) return;
+
     const cursor = cursorRef.current;
     
     // Create cursor dot

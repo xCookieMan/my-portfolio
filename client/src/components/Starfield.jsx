@@ -7,7 +7,8 @@ const Starfield = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let stars = [];
-    const numStars = 400; // Increased star count
+    const isMobile = window.innerWidth < 768;
+    const numStars = isMobile ? 150 : 400; // Reduced star count for mobile performance
     let animationFrameId;
 
     const colors = ['#ffffff', '#ffe9c4', '#d4fbff', '#e0c3fc']; // White, Warm, Cyan, Light Purple
@@ -25,7 +26,7 @@ const Starfield = () => {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5 + 0.5,
+        radius: Math.random() * (isMobile ? 1 : 1.5) + 0.5, // Smaller stars on mobile
         speed: Math.random() * 0.5 + 0.1, // Slower, more majestic speed
         alpha: Math.random(),
         delta: Math.random() * 0.02,
@@ -56,8 +57,9 @@ const Starfield = () => {
         }
       });
 
-      // Random Shooting Star
-      if (Math.random() < 0.015) { 
+      // Random Shooting Star - Reduced frequency on mobile
+      const shootingStarChance = isMobile ? 0.005 : 0.015;
+      if (Math.random() < shootingStarChance) { 
         createShootingStar();
       }
       

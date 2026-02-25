@@ -7,7 +7,7 @@ const SkillSphere = () => {
     const container = containerRef.current;
     
     // Define skills with their specific colors
-    const skillsData = [
+    const allSkills = [
       { name: "React", color: "#61dafb" },      // React Blue
       { name: "Node.js", color: "#68a063" },    // Node Green
       { name: "MongoDB", color: "#4db33d" },    // Mongo Green
@@ -26,8 +26,12 @@ const SkillSphere = () => {
       { name: "MERN", color: "#42b883" }        // Vue/MERN Greenish
     ];
 
+    const isMobile = window.innerWidth < 768;
+    // Reduce number of skills on mobile for better performance
+    const skillsData = isMobile ? allSkills.slice(0, 10) : allSkills;
+
     const options = {
-      radius: 250,
+      radius: isMobile ? 150 : 250,
       maxSpeed: 'fast',
       initSpeed: 'normal',
       direction: 135,
